@@ -1,0 +1,42 @@
+# docker-compose up --build
+version: '3.8'
+
+services:
+  mysqldb:
+    image: mysql:latest
+    restart: unless-stopped
+    environment:
+      - MYSQL_ROOT_PASSWORD=mysql
+      - MYSQL_DATABASE=weather
+    ports:
+      - "3307:3307"
+  app:
+    depends_on:
+      - mysqldb
+    build:
+      context: .
+      dockerfile: Dockerfile   # Build ucun Dockerfila-a yonlendirir
+    restart: on-failure
+    ports:
+      - "8081:8081"
+    environment:
+      SPRING_APPLICATION_JSON: '{
+        "spring.datasource.url"  : "jdbc:mysql://localhost:3307/weather",
+        "spring.datasource.username" : "root",
+        "spring.datasource.password" : "123456789",
+        "spring.jpa.properties.hibernate.dialect" : "org.hibernate.dialect.MySQLDialect",
+        "spring.jpa.hibernate.ddl-auto" : "update"
+      }'
+    stdin_open: true
+    tty: true
+
+
+
+
+
+
+
+
+
+
+
