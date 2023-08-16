@@ -12,7 +12,10 @@ public class CityNameValidator implements ConstraintValidator<CityNameConstraint
 
     @Override
     public boolean isValid(String value, ConstraintValidatorContext constraintValidatorContext) {
+        // Herf ve reqemden basqa butun simvollar "" ile deyisdirilir
         value = value.replaceAll("[^a-zA-Z0-9]", "");
+
+        // String sadece reqemden ibaretdirse ve bossa false qaytar
 
         return !StringUtils.isNumeric(value) && !StringUtils.isAllBlank(value);
     }

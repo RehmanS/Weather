@@ -16,10 +16,10 @@ public class GeneralExceptionHandler {
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("City can't be blank");
     }
 
-    @ExceptionHandler(ConstraintViolationException.class)
+    @ExceptionHandler(ConstraintViolationException.class) // Yazdigimiz annotation bu exceptionu atir
     public ResponseEntity<String> handle(ConstraintViolationException ex) {
         return new ResponseEntity<>(ex.getMessage(), HttpStatus.BAD_REQUEST);
-
+        // CityNameConstraint de yazdigimiz message qayidir
     }
 
     @ExceptionHandler(RequestNotPermitted.class)
