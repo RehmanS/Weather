@@ -10,3 +10,55 @@ This Spring Boot application retrieves weather data from a third-party API using
 * Custom Annotation: Validates user input (city name) using a custom annotation.
 * Logging: AOP (Aspect-Oriented Programming) is used for logging.
 * Rate Limiting: Controls the number of requests a user can make per day.
+
+### Project Structure
+``` plaintext
+src/main/java/com/example/weather
+├── WeatherApplication.java
+├── config
+│   ├── SpringCachingConfig.java
+│   ├── RestTemplateConfig.java
+├── controller
+│   ├── WeatherController.java
+├── service
+│   ├── WeatherService.java
+├── repository
+│   ├── WeatherRepository.java
+├── entity
+│   ├── Weather.java
+├── aspects
+│   ├── LoggingAspect.java
+├── validation
+│   ├── CityNameConstraint.java
+│   ├── CityNameValidator.java
+├── redis
+│   ├── RedisConfig.java
+│   ├── RedisWeather.java
+│   ├── RedisWeatherRepository.java
+├── exception
+│   ├── GlobalExceptionHandler.java
+└── 
+
+```
+
+### Key Components
+* WeatherApplication: Main entry point of the Spring Boot application.
+* RedisConfig: Configuration class for Redis.
+* WeatherController: REST controller for handling weather data requests.
+* WeatherService: Service class for weather data logic.
+* WeatherRepository: Repository interface for database operations.
+* Weather: Entity class representing weather data.
+* LoggingAspect: AOP aspect for logging.
+* CityNameConstraint: Custom annotation for validating city names.
+* CityNameValidator: Validator class for ValidCityName annotation.
+* CustomExceptionHandler: Handles custom exceptions.
+* RateLimiter: Utility class for managing rate limiting.
+
+#### Custom Annotation
+The application uses a custom annotation @CityNameConstraint to validate city names. The annotation is implemented using CityNameValidator.
+
+#### Logging
+All requests and responses are logged using AOP (Aspect-Oriented Programming) with the LoggingAspect class.
+
+#### Contact
+For any inquiries, please contact sultanli.rehmnan@gmail.com
