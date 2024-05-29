@@ -61,4 +61,4 @@ The application uses a custom annotation @CityNameConstraint to validate city na
 All requests and responses are logged using AOP (Aspect-Oriented Programming) with the LoggingAspect class.
 
 #### Contact
-For any inquiries, please contact sultanli.rehmnan@gmail.com
+For any inquiries, please contact sultanli.rehman@gmail.com
